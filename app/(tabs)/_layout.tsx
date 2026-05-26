@@ -1,33 +1,85 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import "react-native-gesture-handler";
+import 'react-native-get-random-values';
+import "react-native-reanimated";
+import { colors } from '../../src/theme';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        headerStyle: { backgroundColor: colors.bg },
+        headerTintColor: colors.text,
+        tabBarStyle: { backgroundColor: '#1f2b30', borderTopColor: colors.border },
+        tabBarActiveTintColor: colors.text,
+        tabBarInactiveTintColor: colors.subtle,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Dashboard',
+          tabBarLabel: 'Dashboard',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" color={color} size={size} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="movimientos"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Movimientos',
+          tabBarLabel: 'Movs.',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="swap-vertical" color={color} size={size} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="recientes"
+        options={{
+          title: 'Recientes',
+          tabBarLabel: 'Recientes',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="time" color={color} size={size} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="recurrentes"
+        options={{
+          title: 'Recurrentes',
+          tabBarLabel: 'Recurrentes',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="repeat" color={color} size={size} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="metas"
+        options={{
+          title: 'Metas',
+          tabBarLabel: 'Metas',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="trophy" color={color} size={size} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="ajustes"
+        options={{
+          title: 'Ajustes',
+          tabBarLabel: 'Ajustes',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings" color={color} size={size} />
+          ),
         }}
       />
     </Tabs>

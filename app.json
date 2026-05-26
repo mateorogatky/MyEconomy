@@ -2,14 +2,15 @@
   "expo": {
     "name": "my-economy",
     "slug": "my-economy",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myeconomy",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mateo.myeconomy"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +20,9 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.mateo.myeconomy",
+      "versionCode": 2
     },
     "web": {
       "output": "static",
@@ -33,16 +36,22 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#263238",
           "dark": {
-            "backgroundColor": "#000000"
+            "backgroundColor": "#263238"
           }
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1222dc14-d82d-4ec2-9685-db2767d3c2fb"
+      }
     }
   }
 }
