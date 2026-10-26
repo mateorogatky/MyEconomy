@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# MyEconomy
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Ingresos, gastos y metas de ahorro en una aplicación móvil.**
 
-## Get started
+MyEconomy busca facilitar el seguimiento de la economía personal: registrar movimientos, ver el balance del mes y saber cuánto falta para llegar a una meta. Los datos se guardan localmente en el dispositivo mediante AsyncStorage.
 
-1. Install dependencies
+## Qué incluye
 
-   ```bash
-   npm install
-   ```
+- Resumen mensual de ingresos, gastos y balance.
+- Registro de movimientos con monto, tipo, categoría, nota y fecha.
+- Consulta de movimientos recientes.
+- Metas de ahorro con monto objetivo y progreso.
+- Registro de ingresos y pagos recurrentes con frecuencia semanal, mensual o anual.
+- Botón «Aplicar ahora» para incorporar manualmente un recurrente a los movimientos.
+- Selección del código de moneda, como USD o ARS.
 
-2. Start the app
+Por ejemplo, se puede registrar un ingreso, cargar los gastos del mes y consultar cuánto queda disponible mientras se sigue una meta de ahorro.
 
-   ```bash
-   npx expo start
-   ```
+## Tecnologías
 
-In the output, you'll find options to open the app in a
+React Native · Expo SDK 54 · TypeScript · Expo Router · React Context · AsyncStorage.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Las pantallas están en `app/(tabs)/`, el estado compartido y la persistencia en `src/state/AppContext.tsx`, y los componentes reutilizables en `src/components/ui.tsx`.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Ejecutar en desarrollo
 
-## Get a fresh project
-
-When you're ready, run:
+Requiere Node.js, npm y un emulador o dispositivo compatible con la versión de Expo del proyecto.
 
 ```bash
-npm run reset-project
+git clone https://github.com/mateorogatky/MyEconomy.git
+cd MyEconomy
+npm install
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+El menú de Expo permite elegir el entorno. En iOS, el simulador requiere macOS. La compatibilidad con Expo Go depende de la versión del SDK y de las dependencias nativas.
 
-## Learn more
+## Estado y alcance
 
-To learn more about developing your project with Expo, look at the following resources:
+Prototipo en desarrollo con almacenamiento local. La moneda seleccionada modifica la presentación de los importes; no convierte saldos entre divisas. Los recurrentes se aplican manualmente: no hay un programador automático de pagos. El código actual no incluye sincronización entre dispositivos ni conexión bancaria.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Próximas mejoras propuestas: exportación y respaldo de datos, conversión de monedas y aplicación automática de recurrentes.
 
-## Join the community
+## Autor
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+[Mateo Nicolás Rogatky](https://github.com/mateorogatky)
